@@ -1,0 +1,160 @@
+.weather-environment-container {
+  width: 100%;
+  height: 100%;
+}
+
+.weather-environment {
+  padding: 15px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  overflow-y: auto;
+}
+
+.weather-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+  color: #00f8f8;
+}
+
+.weather-header h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.weather-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.weather-metric {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  background: rgba(0, 248, 248, 0.05);
+  border: 1px solid rgba(0, 248, 248, 0.2);
+  border-radius: 4px;
+}
+
+.weather-metric.highlight {
+  border-color: #00f8f8;
+  background: rgba(0, 248, 248, 0.1);
+}
+
+.metric-icon {
+  color: #00f8f8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.metric-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.metric-label {
+  font-size: 11px;
+  color: rgba(0, 248, 248, 0.7);
+}
+
+.metric-value {
+  font-size: 16px;
+  font-weight: 600;
+  color: #00f8f8;
+}
+
+.ice-status-bar {
+  width: 100%;
+}
+
+.ice-bar-track {
+  width: 100%;
+  height: 20px;
+  background: rgba(0, 248, 248, 0.1);
+  border: 1px solid rgba(0, 248, 248, 0.3);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.ice-bar-fill {
+  height: 100%;
+  transition: width 0.5s ease, background 0.5s ease;
+  box-shadow: 0 0 10px currentColor;
+}
+
+.ice-status-label {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.weather-card {
+  flex: 0 0 auto;
+}
+
+.weather-card-content {
+  padding: 15px;
+}
+
+.weather-chart {
+  flex: 1;
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+}
+
+.chart-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 250px;
+  padding: 15px;
+}
+
+.chart-section h4 {
+  margin: 0 0 10px 0;
+  font-size: 14px;
+  color: #00f8f8;
+  font-weight: 600;
+}
+
+.chart-container {
+  flex: 1;
+  min-height: 200px;
+  width: 100%;
+}
+
+/* 반응형 */
+@media (max-width: 1200px) {
+  .weather-metrics {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* 스크롤바 스타일 */
+.weather-environment::-webkit-scrollbar {
+  width: 6px;
+}
+
+.weather-environment::-webkit-scrollbar-track {
+  background: rgba(0, 248, 248, 0.1);
+}
+
+.weather-environment::-webkit-scrollbar-thumb {
+  background: rgba(0, 248, 248, 0.3);
+  border-radius: 3px;
+}
+

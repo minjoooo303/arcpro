@@ -1,0 +1,265 @@
+.ship-control {
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  grid-template-rows: auto 1fr;
+  gap: 10px;
+  height: 100%;
+  padding: 0;
+}
+
+/* 1. 선박 구조도 섹션 (왼쪽 전체) */
+.ship-diagram-section {
+  grid-column: 1;
+  grid-row: 1 / 3;
+  height: 100%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.ship-diagram-header {
+  padding: 15px;
+  padding-bottom: 10px;
+}
+
+.ship-diagram-header h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #00f8f8;
+  margin: 0;
+}
+
+.ship-diagram-svg-container {
+  padding: 0 15px 15px 15px;
+}
+
+.ship-svg {
+  width: 100%;
+  height: auto;
+  min-height: 300px;
+  background: 
+    linear-gradient(180deg, 
+      rgba(0, 10, 30, 0.4) 0%,
+      rgba(0, 20, 50, 0.5) 50%,
+      rgba(0, 30, 60, 0.6) 100%
+    );
+  border: 1px solid rgba(0, 248, 248, 0.3);
+  border-radius: 4px;
+  padding: 10px;
+  box-shadow: 
+    inset 0 0 20px rgba(0, 248, 248, 0.1),
+    0 0 15px rgba(0, 248, 248, 0.2);
+}
+
+.ship-component {
+  transition: all 0.3s ease;
+  fill: transparent;
+}
+
+.ship-component:hover {
+  stroke: #00f8f8 !important;
+  stroke-width: 0.8 !important;
+  filter: drop-shadow(0 0 5px rgba(0, 248, 248, 0.8));
+}
+
+.component-marker {
+  filter: drop-shadow(0 0 2px rgba(0, 248, 248, 0.8));
+  transition: all 0.3s ease;
+}
+
+/* 컴포넌트 선택 버튼들 */
+.ship-component-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  padding: 0 15px 15px 15px;
+}
+
+.ship-comp-button {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  padding: 10px 12px;
+  background: rgba(0, 248, 248, 0.05);
+  border: 1px solid rgba(0, 248, 248, 0.2);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #00f8f8;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.ship-comp-button:hover {
+  background: rgba(0, 248, 248, 0.15);
+  border-color: rgba(0, 248, 248, 0.5);
+  transform: translateX(3px);
+}
+
+.ship-comp-button.selected {
+  background: rgba(0, 248, 248, 0.3);
+  border-color: #00f8f8;
+  border-width: 2px;
+  box-shadow: 
+    0 0 15px rgba(0, 248, 248, 0.6),
+    inset 0 0 10px rgba(0, 248, 248, 0.2);
+  color: #fff;
+  font-weight: 600;
+}
+
+.comp-indicator {
+  width: 8px;
+  height: 8px;
+  background: #00f8f8;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.ship-comp-button.selected .comp-indicator {
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 8px #00f8f8;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+.comp-name {
+  font-size: 12px;
+}
+
+/* 선택된 컴포넌트 상세 정보 */
+.ship-component-details {
+  margin: 0 15px 15px 15px;
+  padding: 15px;
+  background: 
+    linear-gradient(135deg,
+      rgba(0, 248, 248, 0.15) 0%,
+      rgba(0, 248, 248, 0.08) 100%
+    );
+  border: 2px solid #00f8f8;
+  border-radius: 6px;
+  animation: fadeIn 0.3s ease;
+  box-shadow: 0 0 15px rgba(0, 248, 248, 0.5);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.comp-detail-header {
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(0, 248, 248, 0.3);
+}
+
+.comp-detail-title {
+  font-size: 15px;
+  color: #00f8f8;
+  font-weight: 700;
+  text-align: center;
+}
+
+.comp-detail-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.comp-detail-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 10px;
+  background: rgba(0, 248, 248, 0.05);
+  border-radius: 4px;
+  border: 1px solid rgba(0, 248, 248, 0.2);
+}
+
+.comp-detail-label {
+  font-size: 12px;
+  color: rgba(0, 248, 248, 0.7);
+  font-weight: 500;
+}
+
+.comp-detail-value {
+  font-size: 13px;
+  color: #00f8f8;
+  font-weight: 600;
+}
+
+.comp-detail-value.status-normal {
+  color: #00ff00;
+}
+
+.comp-detail-value.status-warning {
+  color: #ffa500;
+}
+
+.comp-detail-value.status-danger {
+  color: #ff0000;
+}
+
+/* 2. 모드 선택 섹션 (오른쪽 위) */
+.mode-selector-section {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+/* 3. 상세 내용 섹션 (오른쪽 아래) */
+.detail-content-section {
+  grid-column: 2;
+  grid-row: 2;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.detail-content-section::-webkit-scrollbar {
+  width: 6px;
+}
+
+.detail-content-section::-webkit-scrollbar-track {
+  background: rgba(0, 248, 248, 0.1);
+}
+
+.detail-content-section::-webkit-scrollbar-thumb {
+  background: rgba(0, 248, 248, 0.3);
+  border-radius: 3px;
+}
+
+/* 반응형 */
+@media (max-width: 1400px) {
+  .ship-control {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 1fr;
+  }
+
+  .ship-diagram-section {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .mode-selector-section {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .detail-content-section {
+    grid-column: 1;
+    grid-row: 3;
+  }
+}
+

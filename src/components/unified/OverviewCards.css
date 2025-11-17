@@ -1,0 +1,23 @@
+.overview-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 100%;
+  width: 100%;
+}
+
+.card-row {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  min-height: 0;
+}
+
+/* 반응형 */
+@media (max-width: 1400px) {
+  .card-row {
+    grid-template-columns: 1fr;
+  }
+}
+

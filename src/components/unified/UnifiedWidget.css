@@ -1,0 +1,68 @@
+.unified-widget {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.widget-header-frame {
+  flex-shrink: 0;
+}
+
+.widget-header-content {
+  padding: 12px 15px;
+}
+
+.widget-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 5px;
+}
+
+.widget-icon {
+  font-size: 24px;
+  line-height: 1;
+}
+
+.widget-title h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #00f8f8;
+}
+
+.widget-subtitle {
+  font-size: 13px;
+  color: rgba(0, 248, 248, 0.7);
+  margin-left: 34px;
+}
+
+.widget-dynamic-content {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  min-height: 0;
+}
+
+/* 스크롤바 스타일 */
+.widget-dynamic-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.widget-dynamic-content::-webkit-scrollbar-track {
+  background: rgba(0, 248, 248, 0.1);
+  border-radius: 4px;
+}
+
+.widget-dynamic-content::-webkit-scrollbar-thumb {
+  background: rgba(0, 248, 248, 0.4);
+  border-radius: 4px;
+}
+
+.widget-dynamic-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 248, 248, 0.6);
+}
+
