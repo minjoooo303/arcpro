@@ -1,37 +1,44 @@
-# Arctic Ship Dashboard
+# Arctic Ship Dashboard 🚢
 
-북극 항로 선박 운항을 위한 실시간 대시보드
+**Interactive React dashboard prototype for visualizing vessel operations and icebreaker-specific maintenance information.**
 
-## 기능
+> **Scope:** This interface uses simulated/demo values. It is **not** connected to live ship sensors and does not implement or validate a remaining-useful-life (RUL) prediction model.
 
-- **상단**: 경로/지도 패널 - 항로 + 장애물 표시
-- **중단**: 운항 계기판 클러스터 - Navigation, Engine, Fuel, Environment 카드
-- **하단**: 모드 전환 + 상세 위젯 - 7가지 대시보드 모드
-- **좌측**: 선박 단면도 + 클릭 핫스팟 - 부위별 상세 정보
+## Project motivation
 
-## 설치
+During a K-shipbuilding hackathon, our team explored potential shipbuilding problems and chose predictive maintenance. Following feedback that generic equipment-failure prediction offered limited differentiation, we examined environmental conditions specific to icebreakers: sea-ice thickness/concentration, propulsion load, and their possible relevance to bearing degradation.
+
+The repository presents a dashboard concept around this problem, **not a validated predictive maintenance system**.
+
+## Implemented dashboard features
+
+- Route/environment panel with map and ice-related displays
+- Navigation, engine, fuel/power, and environment indicators
+- Seven detail views: overview, engine, hull stress, bearings/RUL display, power, fuel, and ice
+- Interactive ship diagram with component selection
+- Charts and visual gauges using Recharts and Arwes
+
+## Data and limitations
+
+Some values are produced by `setInterval` and JavaScript random-number updates to demonstrate the UI. Any risk or RUL-looking indicators are illustrative, not measured predictions. Actual deployment would require sensor inputs, calibrated models, verification, and a backend.
+
+## Run locally
 
 ```bash
+git clone https://github.com/minjoooo303/arcpro.git
+cd arcpro
 npm install
-```
-
-## 실행
-
-```bash
 npm run dev
 ```
 
-## 빌드
+Open the URL printed by Vite. Build with `npm run build` and preview with `npm run preview`.
 
-```bash
-npm run build
-```
+## Stack
 
-## 기술 스택
+React 18 · Vite · Recharts · Arwes · lucide-react · Google Maps React integration
 
-- React 18
-- Arwes (Sci-Fi UI Framework)
-- Recharts (데이터 시각화)
-- Lucide React (아이콘)
-- Vite (빌드 도구)
+See [PROJECT_STRUCTURE.md](PROJECT_STRUCTURE.md) for the component breakdown.
 
+## Collaboration
+
+The hackathon problem formulation and concept development were team efforts. This repository documents a UI prototype; repository ownership does not imply sole authorship of the team's ideas.
